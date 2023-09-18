@@ -1,77 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>随机点名</title>
-    <style>
-        /* 初始化页面，清除所有元素的内外边距 */
-        * {
-            padding: 0;
-            margin: 0;
-            /* 设置背景颜色为414141 */
-            background-color: #414141;
-        }
-
-        /* 盒子居中 */
-        div {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            text-align: center;
-        }
-
-        /* 使用上期视频的文字渐变效果，再加一点点文字阴影 */
-        span,
-        h2 {
-            text-shadow: 0 0 10px #dfd8d8;
-            background: linear-gradient(135deg, #14ffe9, #ffeb3b, #ff00e0);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            animation: ff 0.9s linear infinite;
-        }
-
-        @keyframes ff {
-            to {
-                filter: hue-rotate(360deg);
-            }
-        }
-
-        /* 设置一下字体大小 */
-        h2 {
-            font-size: 72px;
-        }
-
-        span {
-            font-size: 46px;
-        }
-
-
-        /* 按钮居中 */
-        button {
-            position: absolute;
-            top: 30%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 80px;
-            height: 25px;
-            box-shadow: 0 0 10px #fff;
-            /* 取消轮廓线 */
-            outline: none;
-            background-color: gray;
-        }
-    </style>
+    <title>Document</title>
 </head>
+<style>
+    /* 初始化页面，清除所有元素的内外边距 */
+    * {
+        padding: 0;
+        margin: 0;
+        /* 设置背景颜色为414141 */
+        background-color: #414141;
+    }
 
+    /* 盒子居中 */
+    div {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+    }
+
+    /* 使用上期视频的文字渐变效果，再加一点点文字阴影 */
+    span,
+    h2 {
+        text-shadow: 0 0 10px #dfd8d8;
+        background: linear-gradient(135deg, #14ffe9, #ffeb3b, #ff00e0);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        animation: ff 0.9s linear infinite;
+    }
+
+    @keyframes ff {
+        to {
+            filter: hue-rotate(360deg);
+        }
+    }
+
+    /* 设置一下字体大小 */
+    h2 {
+        font-size: 46px;
+    }
+
+    span {
+        font-size: 185px;
+    }
+
+
+    /* 按钮居中 */
+    #button_text {
+        position: absolute;
+        top: 15%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 180px;
+        height: 75px;
+        box-shadow: 0 0 10px #fff;
+        /* 取消轮廓线 */
+        outline: none;
+        background-color: gray;
+    }
+    #class_one, #class_two , #class_three , #class_four{
+        width: 100px;
+        height: 45px;
+        box-shadow: 0 0 10px red;
+        color: #9e9a9a;
+        animation: ff 0.9s linear infinite;
+    }
+</style>
 <body>
     <div>
         <h2>随机点名</h2>
         <span id="name"></span>
     </div>
-    <input type="file" id="fileInput">
+    <!-- <input type="file" id="fileInput"> -->
+    <button id="class_one">71班</button>
+    <button id="class_two">72班</button>
+    <button id="class_three">81班</button>
+    <button id="class_four">82班</button>
     <button id="button_text">stop</button>
 
 
@@ -79,20 +87,202 @@
         // 获取标签
         let nametxt = document.getElementById('name');
         let button = document.getElementById('button_text');
+        let button1 = document.getElementById('class_one');
+        let button2 = document.getElementById('class_two');
+        let button3 = document.getElementById('class_three');
+        let button4 = document.getElementById('class_four');
+        let h2 = document.getElementsByTagName('h2')[0];
         // 创建一个数组存储名字
-        let uname = ['请先添加文本!'];
-        document.getElementById('fileInput').addEventListener('change', function (event) {
-            var file = event.target.files[0];
-            var reader = new FileReader();
+        let uname = ['请选择'];
+        // document.getElementById('fileInput').addEventListener('change', function (event) {
+        //     var file = event.target.files[0];
+        //     var reader = new FileReader();
 
-            reader.onload = function (event) {
-                var fileContent = event.target.result;
-                uname = fileContent.split(',');  // 假设文本每行一个元素，用换行符分隔
-                console.log(uname);
-            };
+        //     reader.onload = function (event) {
+        //         var fileContent = event.target.result;
+        //         uname = fileContent.split(',');  // 假设文本每行一个元素，用换行符分隔
+        //         console.log(uname);
+        //     };
 
-            reader.readAsText(file);
-        });
+        //     reader.readAsText(file);
+        // });
+        let buttonFlag = false;
+        button1.onclick = function () {
+            uname = ['朱晞文',
+'陈春妍',
+'刘子赫',
+'吴宇伦',
+'张逸晨',
+'谭悦',
+'张语桐',
+'夏一清',
+'刘孟洋',
+'许文轩',
+'汤奕萱',
+'马一心',
+'阿如娜',
+'张涵铭',
+'易江南',
+'李朋璋',
+'许家瑞',
+'李广美',
+'孙立卓',
+'寇煜欣',
+'张语竹',
+'刘默含',
+'王芊芊',
+'姬帅航',
+'董一帆',
+'王睿',
+'张孟馨',
+'宫子涵',
+'刘俊浩',
+'盛宇涵',
+'王筱筠',
+'马子涵',
+'马嘉谛',
+'王蹊言',
+'吴敦敏',
+'贡玉鋡',
+'申嘉宝',
+'赵天华',
+'汪玥涵',
+'凡沛冉',
+'李浩中'];
+            buttonFlag = true;
+            h2.innerHTML = '71班正在点名';
+        };
+        button2.onclick = function () {
+            uname = ['艾莫野',
+'沈祺',
+'唐锦',
+'孟梦',
+'王泽宇',
+'吴琼',
+'何峻霄',
+'王浩然',
+'朱佳蕊',
+'宋子墨',
+'秦紫墨',
+'黄鑫屹',
+'张雅琪',
+'徐悦颜',
+'汤梓叶',
+'董丰源',
+'吴禹繁',
+'谢君宜',
+'张工羽',
+'唐筱蕾',
+'王品茹',
+'郑婧',
+'张浩宸',
+'陈益佳',
+'袁瑞煊',
+'张兆伦',
+'刘昀熹',
+'罗竹青',
+'陈旖林',
+'张艺轩',
+'康世林',
+'苏伊晨',
+'杨顺驿',
+'马漪然',
+'刘禹含',
+'王喬',
+'何明轩',
+'李铭浚',
+'汪文博',
+'刘泽辰',
+'张超然'
+];
+            buttonFlag = true;
+            h2.innerHTML = '72班正在点名';
+        };
+        button3.onclick = function () {
+            uname = ['孔德睿',
+'马铭晗',
+'石若泉',
+'黄乐妮',
+'王嘉铄',
+'姜博予',
+'赵宝瑞',
+'冯可馨',
+'姜博文',
+'易纯熙',
+'支冠予',
+'李明泽',
+'汤博翰',
+'陈柏予',
+'南承昊',
+'石翱玮',
+'汪天一',
+'蓝晨菁',
+'桂梓然',
+'于子渲',
+'王玺童',
+'刘建',
+'张荣轩',
+'苏礼',
+'李婧如',
+'王安竹',
+'王子墨',
+'李晨熙',
+'马珮育',
+'姚婉儿',
+'罗雪怡',
+'张恩赫',
+'周乐嘉',
+'程楚曦',
+'黄子钰',
+'刘刚',
+'周祉颐',
+];
+            buttonFlag = true;
+            h2.innerHTML = '81班正在点名';
+        };
+        button4.onclick = function () {
+            uname = ['马屿桐',
+'刘相辰',
+'周欣怡',
+'李紫溪',
+'董易文',
+'李子航',
+'余佳润',
+'宋畅',
+'吴文熙',
+'刘京昊',
+'米胤叡',
+'迟璟晗',
+'米泊叡',
+'郑沐瑶',
+'白懿欣',
+'王卓然',
+'宗子皓',
+'韩其航',
+'张艾凝',
+'宋卓航',
+'冯茂轩',
+'郭景怡',
+'宋冰悦',
+'翟浩权',
+'王思涵',
+'李炎皙',
+'司岩松',
+'贾睿毅',
+'王天祺',
+'李泽轩',
+'吴天辰',
+'陈熙月',
+'陈熙文',
+'彭梓轩',
+'程梓庭',
+'张宇清',
+'高珮娴',
+'陈珈妮',
+];
+            buttonFlag = true;
+            h2.innerHTML = '82班正在点名';
+        };
         // 创建一个函数生成随机数字
         function getrandom(min, max) {
             return Math.floor(Math.random() * (max - min) + min);
@@ -105,11 +295,14 @@
         };
         // 打印名字已经实现了，下一步让没点击按钮前名字一直刷新
         // 设置不停止时名字的刷新速度为30毫秒
-        let time = self.setInterval("clock()", 50);
+        let time = self.setInterval("clock()", 80);
         // 将开始与停止按钮绑定到按钮上，并通过按钮控制
         let flag = false;
         button.onclick = function () {
             // 当flag标志为false时，点击按钮让刷新停止；
+            if(!buttonFlag){
+                alert("请先选择班级!");
+            }
             if (flag == false) {
                 time = window.clearInterval(time);
                 // 按钮文字从stop变为start；
@@ -118,12 +311,14 @@
                 flag = true;
             } else {
                 // 当flag标志为true时，开始刷新，文字变更
-                time = self.setInterval("clock()", 30);
+                time = self.setInterval("clock()", 80);
                 button.innerHTML = 'stop';
                 flag = false;
             }
         }
     </script>
-</body>
 
+
+
+</body>
 </html>
